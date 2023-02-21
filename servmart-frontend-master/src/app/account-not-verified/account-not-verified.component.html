@@ -1,0 +1,20 @@
+
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <div class="contract-container-wrapper"> 
+        <div class="logo-wrap" (click)="goToHomePage()">
+            <span class="sermart-text">ServMart</span>
+            <img src="../../assets/images/servmart-logo-2.png" class="supplier-logo">
+            <div class="supplier-center-text">Supplier Center</div>
+        </div>
+        <div class="sendVerificationLinkPage">
+            <div class="box success-box">
+                <div>
+                    <div class="danger-icon">&#9888;</div>
+                </div>
+                <p class="thank-you">Your account is not verified yet.</p>
+                <p> Check your registered email id for the verification link</p>
+                <button mat-raised-button color="primary" class="button" (click)="goToHomePage()">Back to Home</button>
+            </div>
+        </div>
+    </div>
+</div>

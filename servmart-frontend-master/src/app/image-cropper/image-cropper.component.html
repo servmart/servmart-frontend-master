@@ -1,0 +1,60 @@
+<div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 mx-auto">
+    <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+        <div class="action-btn-container">
+            <input id="fileInput" (change)="fileChangeEvent($event)" type="file" style="display:none;">
+            <input type="button" class="btn btn-primary btn-block upload-image-button" value="Upload New Image" onclick="document.getElementById('fileInput').click();">
+            <button type="button" [disabled]="!this.croppedImage" (click)="sendDataToParent()" class="btn btn-primary float-right pload-image-button">Save Image</button>
+        </div>
+        <div class="button-container">
+            <div class="button-wrapper-direction">
+                <input type="button" [disabled]="!this.croppedImage" class="btn btn-warning btn-block upload-image-button" value="Rotate Left" (click)="rotateLeft()">
+                <input type="button" [disabled]="!this.croppedImage" class="btn btn-warning btn-block upload-image-button" value="Rotate Right" (click)="rotateRight()">
+                <input type="button" [disabled]="!this.croppedImage" class="btn btn-warning btn-block upload-image-button" value="Flip horizontal" (click)="flipHorizontal()">
+                <input type="button" [disabled]="!this.croppedImage" class="btn btn-warning btn-block upload-image-button" value="Flip vertical" (click)="flipVertical()">
+            </div>
+            <div class="button-wrapper-aspect">
+                <input type="button" [disabled]="!this.croppedImage" class="btn btn-warning btn-block upload-image-button" value="{{containWithinAspectRatio ? 'Fill Aspect Ratio' : 'Contain Within Aspect Ratio'}}" (click)="toggleContainWithinAspectRatio()">
+                <input type="button" [disabled]="!this.croppedImage" class="btn btn-warning btn-block upload-image-button" value="Reset Image" (click)="resetImage()">
+            </div>
+            <div class="button-wrapper-zoom">
+                <input  [disabled]="!this.croppedImage" type="number" 
+                    [(ngModel)]="rotation" 
+                    placeholder="Rotation"
+                    class="form-control rotation-input-box"
+                    (keyup)="updateRotation()"
+                /> 
+                <input type="button" [disabled]="!this.croppedImage" class="btn btn-warning btn-block upload-image-button" value="Zoom -" (click)="zoomOut()"> 
+                <input type="button" [disabled]="!this.croppedImage" class="btn btn-warning btn-block upload-image-button" value="Zoom +" (click)="zoomIn()">
+            </div>
+        </div>
+        <div class="row tm-edit-product-row">
+            <div class="col-xl-6 col-lg-6 col-md-12">
+            <image-cropper
+            [imageChangedEvent]="imageChangedEvent"
+            [maintainAspectRatio]="true"
+            [containWithinAspectRatio]="containWithinAspectRatio"
+            [aspectRatio]="4 / 3"
+            [resizeToWidth]="400"
+            [cropperMinWidth]="200"
+            [onlyScaleDown]="true"
+            [roundCropper]="false"
+            [canvasRotation]="canvasRotation"
+            [transform]="transform"
+            [alignImage]="'left'"
+            [style.display]="showCropper ? null : 'none'"
+            format="png"
+            (imageCropped)="imageCropped($event)"
+            (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady($event)"
+            (loadImageFailed)="loadImageFailed()"
+            >
+            </image-cropper>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12" [ngClass]="{ 'cropped-image-container': croppedImage}">
+                <img [src]="croppedImage" />
+            </div>
+        </div>
+        
+    </div>
+</div>
+

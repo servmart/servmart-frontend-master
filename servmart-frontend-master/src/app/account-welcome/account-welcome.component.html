@@ -1,0 +1,17 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <div class="logo-wrap" (click)="goToHomePage()">
+        <span class="sermart-text">ServMart</span>
+        <img src="../../assets/images/servmart-logo-2.png" class="supplier-logo">
+        <div class="supplier-center-text">Supplier Center</div>
+    </div>
+    <div class="sendVerificationLinkPage">
+        <div class="box success-box">
+            <div class="tick-mark"  *ngIf="errorFlag">
+                <img src="../../assets/images/tick3.png">
+            </div>
+            <p class="thank-you">{{verificationResponse}}</p>
+            <p class="confirm-email" *ngIf="!errorFlag">Please login to continue</p>
+            <button mat-raised-button color="primary" class="button" (click)="goToLoginPage()" *ngIf="!errorFlag">Login Now</button>
+        </div>
+    </div>
+</div>

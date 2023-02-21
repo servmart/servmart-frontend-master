@@ -1,0 +1,44 @@
+.footer-apply {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(//i5.walmartimages.com/dfw/63fd9f59-405b/789c2b4a-e47a-4016-befe-f335ad8b8225/v1/home-footer.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.footer-apply .row {
+  height: 291px;
+  width: 100%;
+  display: table;
+}
+.row {
+  height: 291px;
+  width: 100%;
+  display: table;
+}
+.centered {
+  text-align: center;
+}
+.footer-apply .row .header-text-container {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+}
+.footer-apply .row .header-text-container .header-text {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+.footer-apply .row .header-text-container .btn.btn-default {
+  background-color: transparent;
+  color: #fff;
+}
+.footer-apply .row .header-text-container .btn {
+  font-size: 20px;
+  width: 250px;
+}
+.apply-button {
+  padding: 5px 15px !important;
+  font-size: 20px !important;
+  width: 250px !important;
+  margin-top: 11px !important;
+}

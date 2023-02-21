@@ -1,0 +1,74 @@
+<div class="subscription-wrapper">
+    <div class="logo-wrap" (click)="goToHomePage()">
+      <span class="sermart-text">ServMart</span>
+      <img src="../../assets/images/servmart-logo-2.png" class="supplier-logo">
+      <div class="supplier-center-text">Supplier Center</div>
+    </div>
+      <div class="container">
+          <h1 class="text-center header">Subscribe to get more out of ServMart</h1>
+          <div class="table-wrapper flex-display">
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 table-bg">           
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="property">
+                    <th mat-header-cell *matHeaderCellDef> </th>
+                    <td mat-cell *matCellDef="let element"> {{element.property}} </td>
+                  </ng-container>
+                
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="basic">
+                    <th mat-header-cell *matHeaderCellDef> 
+                      <img src="https://secure-media.hotstar.com/static/subscription/logo/psp-lite/free-1x.png" srcset="https://secure-media.hotstar.com/static/subscription/logo/psp-lite/free-2x.png 2x, https://secure-media.hotstar.com/static/subscription/logo/psp-lite/free-3x.png 3x" alt="" class="">
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.basic}} </td>
+                  </ng-container>
+                
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="vip">
+                    <th mat-header-cell *matHeaderCellDef>
+                      <div class="gold-pack">GOLD</div>
+                      <!-- <img src="https://secure-media.hotstar.com/static/subscription/logo/psp-lite/vip-1x.png" srcset="https://secure-media.hotstar.com/static/subscription/logo/psp-lite/vip-2x.png 2x, https://secure-media.hotstar.com/static/subscription/logo/psp-lite/vip-3x.png 3x" alt="" class=""> -->
+                    </th>
+                    <td mat-cell *matCellDef="let element"> {{element.vip}} </td>
+                  </ng-container>
+                  <ng-container matColumnDef="premium">
+                      <th mat-header-cell *matHeaderCellDef>
+                        <div class="platinum-pack">PLATINUM</div>
+                          <!-- <img src="https://secure-media.hotstar.com/static/subscription/logo/psp-lite/premium-1x.png" srcset="https://secure-media.hotstar.com/static/subscription/logo/psp-lite/premium-2x.png 2x, https://secure-media.hotstar.com/static/subscription/logo/psp-lite/premium-3x.png 3x" alt="" class=""> -->
+                      </th>
+                      <td mat-cell *matCellDef="let element"> {{element.premium}} </td>
+                    </ng-container>
+                
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+          </div>
+          <div class="flex-display">
+              <div class="subscription-container">
+                  <input type="radio" name="radio" id="option1" checked="checked" (click)="onItemChange(250)">
+                  <label for="option1" class="subscription__button">
+                      <img src="https://secure-media.hotstar.com/static/subscription/logo/psp-lite/free-1x.png" srcset="https://secure-media.hotstar.com/static/subscription/logo/psp-lite/free-2x.png 2x, https://secure-media.hotstar.com/static/subscription/logo/psp-lite/free-3x.png 3x" alt="" class="subscription__title">
+                      <span class="subscription__price">$250/mo</span>
+                  </label>
+                
+                  <input type="radio" name="radio" id="option2" (click)="onItemChange(500)">
+                  <label for="option2" class="subscription__button">
+                    <div class="gold-pack">GOLD</div>
+                      <!-- <img src="https://secure-media.hotstar.com/static/subscription/logo/psp-lite/vip-1x.png" srcset="https://secure-media.hotstar.com/static/subscription/logo/psp-lite/vip-2x.png 2x, https://secure-media.hotstar.com/static/subscription/logo/psp-lite/vip-3x.png 3x" alt="" class=""> -->
+                      <span class="subscription__price">$500/mo</span>
+                  </label>
+                  
+                  <input type="radio" name="radio" id="option3"(click)="onItemChange(599)">
+                  <label for="option3" class="subscription__button">
+                    <div class="platinum-pack">PLATINUM</div>
+                      <!-- <img src="https://secure-media.hotstar.com/static/subscription/logo/psp-lite/premium-1x.png" srcset="https://secure-media.hotstar.com/static/subscription/logo/psp-lite/premium-2x.png 2x, https://secure-media.hotstar.com/static/subscription/logo/psp-lite/premium-3x.png 3x" alt="" class=""> -->
+                      <span class="subscription__price">$599/mo</span>
+                  </label>
+              </div>
+          </div>
+          <div class="flex-display">
+              <button mat-raised-button color="primary" class="button" *ngIf="!showContinueButton" (click)="makePayment()">Make Payment</button>
+              <button mat-raised-button color="primary" class="button" *ngIf="showContinueButton"(click)="continueToNextPage()">Contine</button>
+
+          </div>
+      </div>
+  </div>

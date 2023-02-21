@@ -1,0 +1,37 @@
+<div class="main-wrapper login" fxLayout="row" fxLayoutAlign="center center">
+    <div class="logo-wrap" (click)="goToHomePage()">
+        <span class="sermart-text">ServMart</span>
+        <img src="../../assets/images/servmart-logo-2.png" class="supplier-logo">
+        <div class="supplier-center-text">Supplier Center</div>
+    </div>
+    <div class="login-container">
+        <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onFormSubmit()">
+            <div class="form-group">
+                <label for="email" class="label-color">Email</label>
+                <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval['email'].errors }" placeholder="Enter email here"/>
+                <div *ngIf="submitted && fval['email'].errors" class="invalid-feedback">
+                    <div *ngIf="fval['email'].errors['required']">Email is required</div>
+                    <div *ngIf="fval['email'].errors['pattern']">Enter valid email address</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="label-color">Password</label>
+                <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && fval['password'].errors }" placeholder="Enter password here" />
+                <div *ngIf="submitted && fval['password'].errors" class="invalid-feedback">
+                    <div *ngIf="fval['password'].errors['required']">Password is required</div>
+                    <div *ngIf="fval['password'].errors['minlength']">Password length should be more than 7 characters</div>
+                </div>
+            </div>
+            <div (click)="forgotPassword()">Forgot your password?</div>
+            <div class="form-group action-container">
+                <button mat-raised-button color="primary" [disabled]="loading" class="button loginButton">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>Login
+                </button>
+            </div>
+            <div class="error-msg">{{loginErrorResponse}}</div>
+            <div>Create new account?
+                <a routerLink="/sign-up" class="btn btn-link" [ngClass]="{'disabled': loading}">Sign Up!</a>
+            </div>
+        </form>
+    </div>
+</div>

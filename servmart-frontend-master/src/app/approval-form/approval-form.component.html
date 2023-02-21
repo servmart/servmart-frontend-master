@@ -1,0 +1,88 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <div class="logo-wrap" (click)="goToHomePage()">
+        <span class="sermart-text">ServMart</span>
+        <img src="../../assets/images/servmart-logo-2.png" class="supplier-logo">
+        <div class="supplier-center-text">Supplier Center</div>
+    </div>
+    <form [formGroup]="addShopFormGroup" (ngSubmit)="onSubmit(addShopFormGroup.value)" class="flex-display" style="height: 100%;" autocomplete="off" *ngIf="!sendVerificationLink">
+        <mat-card class="box">
+            <mat-card-header>
+                <mat-card-title class="supplier-header custom-text-color">Create your account</mat-card-title>
+            </mat-card-header>
+            <mat-form-field class="full-width">
+                <mat-label>* Supplier Name</mat-label>
+                <input matInput formControlName="supplierName" >
+                <mat-error *ngIf="checkError('supplierName', 'required')">Supplier Name is required</mat-error>
+                <mat-error *ngIf="checkError('supplierName', 'minlength')">Supplier Name should be more than 5 characters
+                </mat-error>
+                <mat-error *ngIf="checkError('supplierName', 'maxlength')">Supplier Name should be less than 20 characters
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>* Supplier Number</mat-label>
+                <input matInput formControlName="supplierNumber" type="number">
+                <mat-error *ngIf="checkError('supplierNumber', 'required')">Supplier Number is required</mat-error>
+                <mat-error *ngIf="checkError('supplierNumber', 'minlength')">Supplier Number should be more than 5 digits
+                </mat-error>
+                <mat-error *ngIf="checkError('supplierNumber', 'maxlength')">Supplier Number should be less than 20 digits
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>* PAN Number</mat-label>
+                <input matInput formControlName="panNumber"  maxlength="10" class="upperCase">
+                <mat-error *ngIf="checkError('panNumber', 'required')">PAN Number is required</mat-error>
+                <mat-error *ngIf="checkError('panNumber', 'minlength')">PAN Number should be equal to 10 digits
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>* GSTIN</mat-label>
+                <input matInput formControlName="gstin" maxlength="15" class="upperCase">
+                <mat-error *ngIf="checkError('gstin', 'minlength')">GSTIN number should be more than 5 characters
+                </mat-error>
+                <mat-error *ngIf="checkError('gstin', 'required')">GSTIN Number is required</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>* Mobile Number</mat-label>
+                <input matInput formControlName="supplierMobileNumber" type="tel" maxlength="10">
+                <mat-error *ngIf="checkError('supplierMobileNumber', 'required')">Mobile Number is required</mat-error>
+                <mat-error *ngIf="checkError('supplierMobileNumber', 'pattern') || checkError('supplierMobileNumber', 'minlength')">Enter Valid Mobile Number, It should be equal to 10 digits</mat-error>
+                <!-- <mat-error *ngIf="checkError('supplierMobileNumber', 'minlength')">Mobile number should be equal to 10 digits
+                </mat-error> -->
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>* Email Id</mat-label>
+                <input matInput formControlName="supplierEmailId">
+                <mat-error *ngIf="checkError('supplierEmailId', 'required')">Email Id is required</mat-error>
+                <mat-error *ngIf="checkError('supplierEmailId', 'pattern')">Enter Valid Email Id</mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <mat-label>* Password</mat-label>
+                <input type="password" matInput formControlName="password" minlength="8">
+                <mat-error *ngIf="checkError('password', 'required')">Password is required</mat-error>
+                <mat-error *ngIf="checkError('password', 'minlength')">Password length should be more than 7 characters</mat-error>
+            </mat-form-field>
+            <!-- <mat-form-field appearance="fill" class="full-width">
+                <mat-label>Select an option</mat-label>
+                <mat-select [(value)]="selected" formControlName="selectType">
+                  <mat-option>None</mat-option>
+                  <mat-option value="directSupplier">Direct Supplier</mat-option>
+                  <mat-option value="supplier">Supplier</mat-option>
+                </mat-select>
+            </mat-form-field> -->
+            <div class="form-element button-div">
+                <button mat-raised-button color="primary" [disabled]="!addShopFormGroup.valid" type="submit" class="button">Submit</button>
+            </div>
+        </mat-card>
+    </form>
+    <div *ngIf="sendVerificationLink" class="sendVerificationLinkPage">
+        <div class="box success-box">
+            <div class="tick-mark">
+                <img src="../../assets/images/tick3.png">
+            </div>
+            <p class="thank-you">Thank you for your interest in ServMart...</p>
+            <p class="confirm-email">Verification E-mail has been sent successfully.
+                <br > Please check and verify it to move further...</p>
+            <button mat-raised-button color="primary" class="button" (click)="goToHomePage()">Ok</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+<div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <div class="logo-wrap">
+        <div style="width: 250px;" (click)="goToHomePage()">
+            <span class="sermart-text">ServMart</span>
+            <img src="../../assets/images/servmart-logo-2.png" class="supplier-logo">
+            <div class="supplier-center-text">Supplier Center</div>
+        </div>
+        <div>
+            <button type="button" (click)="goToOnboardingPage()" class="btn btn-warning float-right">Go To Onboarding Page</button> 
+        </div>
+    </div>
+<div class="productWrapper">
+    <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto" [ngClass]="{ 'hide': showCropper }">
+        <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+            <div class="row">
+                <div class="col-12">
+                <h2 class="tm-block-title d-inline-block">{{editMode ? 'Edit' : 'Add New'}} Product</h2>
+                </div>
+            </div>
+            <div class="row tm-edit-product-row">
+                <div class="col-xl-6 col-lg-6 col-md-12">
+                    <form #addEditForm="ngForm" class="tm-edit-product-form" [formGroup]="addEditProduct" (ngSubmit)="onSubmit()">
+                        <div>
+                            <div class="form-group mb-3">
+                                <label for="name">Product Name</label>
+                                <input  type="text" 
+                                        [ngModel]="productData.title" 
+                                        formControlName="title" 
+                                        class="form-control" 
+                                        [ngClass]="{ 'is-invalid': submitted && f['title'].errors }"
+                                />
+                                <div *ngIf="submitted && f['title'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['title'].errors['required']">Product Name is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="description">Description</label>
+                                <textarea  class="form-control validate" 
+                                        rows="3" 
+                                        required=""
+                                        [ngModel]="productData.description" 
+                                        formControlName="description" 
+                                        [ngClass]="{ 'is-invalid': submitted && f['description'].errors }">
+                                </textarea>
+                                <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['description'].errors['required']">Product Description is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="category">Category</label>
+                                <select [(ngModel)]="productData.type" formControlName="type" class="custom-select tm-select-accounts">
+                                    <option value="">Select category</option>
+                                    <option *ngFor="let title of productTypeArray" [ngValue]="title">
+                                    {{title}}
+                                    </option>
+                                </select>
+                                <div *ngIf="submitted && f['type'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['type'].errors['required']">Product Category is required</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                    <label for="expire_date">Old Price
+                                    </label>
+                                    <input  type="text" 
+                                    [ngModel]="productData.oldPrice" 
+                                    formControlName="oldPrice" 
+                                    class="form-control" 
+                                    [ngClass]="{ 'is-invalid': submitted && f['oldPrice'].errors }"
+                                    />
+                                    <div *ngIf="submitted && f['oldPrice'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['oldPrice'].errors['required']">Old Price is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3 col-xs-12 col-sm-6">
+                                    <label for="stock">New Price
+                                    </label>
+                                    <input  type="text" 
+                                    [ngModel]="productData.newPrice" 
+                                    formControlName="newPrice" 
+                                    class="form-control" 
+                                    [ngClass]="{ 'is-invalid': submitted && f['newPrice'].errors }"
+                                    />
+                                    <div *ngIf="submitted && f['newPrice'].errors" class="invalid-feedback">
+                                        <div *ngIf="f['newPrice'].errors['required']">New Price is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="description">Image Link</label>
+                                <input  type="text" 
+                                        [ngModel]="productData.imgLink" 
+                                        formControlName="imgLink" 
+                                        class="form-control" 
+                                        [ngClass]="{ 'is-invalid': submitted && f['imgLink'].errors }"
+                                />
+                                <div *ngIf="submitted && f['imgLink'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['imgLink'].errors['required']">Image link is required</div>
+                                </div>
+                                <!-- <input type="button" *ngIf="!editMode" [disabled]="!this.addEditProduct.value.imgLink" class="btn btn-primary btn-block mx-auto preview-img-btn" value="Preview" (click)="previewImg(productData.imgLink)"> -->
+                                <input type="button" class="btn btn-primary btn-block mx-auto upload-img-btn" value="Upload Image" (click)="uploadImage()">
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+                                <div class="tm-product-img-dummy mx-auto">
+                                    <i class="fas fa-cloud-upload-alt tm-upload-icon" onclick="document.getElementById('fileInput').click();"></i>
+                                </div>
+                            </div>
+                            <div class="col-12 btn-wrapper">
+                                <button mat-raised-button color="primary" [disabled]="loading" class="button">
+                                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>{{editMode ? 'Update' : 'Add'}} Product Now
+                                </button>
+                                <button type="button" [disabled]="deleteLoading" (click)="deleteProduct()" *ngIf="editMode" class="btn btn-danger">
+                                    <span *ngIf="deleteLoading" class="spinner-border spinner-border-sm mr-1"></span>Delete Product
+                                </button>
+                                <button type="button" (click)="onReset()" class="btn btn-warning float-right">Reset</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 previewImg image-container" style="text-align: center;">
+                    <img *ngIf="this.addEditProduct.value.imgLink" class="image-div" src={{this.addEditProduct.value.imgLink}}/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="image-crop-block" [ngClass]="{ 'hide': !showCropper }">
+        <app-image-cropper (sendCroppedImage)="getCroppedImageLink($event)" ></app-image-cropper>
+    </div>
+</div>

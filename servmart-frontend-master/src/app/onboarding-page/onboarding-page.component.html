@@ -1,0 +1,69 @@
+<!-- <div class="logo-wrap">
+  <span class="sermart-text">Servmart</span>
+  <img src="../../assets/images/servmart-logo-2.png" class="supplier-logo">
+  <div class="supplier-center-text">Supplier Center</div>
+</div> -->
+<app-main-header></app-main-header>
+<div class="onboarding-wrapper">
+  <div class="products-wrapper">
+    <div class="product-container" >
+      <div class="card" *ngFor="let product of availableProducts">
+        <div class="card__image-holder">
+          <img class="card__image" [src]="product.imgLink" [alt]="product.productName" />
+        </div>
+        <div class="card-title">
+          <a class="toggle-info btn" (click)="showProducts(product.productName, product.selected);">
+            <i class="arrow " [ngClass]="product.selected ? 'up' : 'down'"></i>
+            <!-- <i class="arrow down"></i> -->
+          </a>
+          <div><b>{{product.name}}</b></div>
+          <div>
+            <small>{{product.productDesc}}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="onboarding-button">
+      <button mat-raised-button color="primary" class="button" [disabled]="selectedProductsList.length == 0" (click)="onContinueClick()">Continue</button>
+      <button mat-raised-button color="primary" class="button" [disabled]="selectedProductsList.length > 0"(click)="selectAllProducts()">Select All Products</button>
+      <!-- <button mat-raised-button color="primary" class="button" (click)="addProduct()">Select All Products</button> -->
+      <button type="button" (click)="addProduct()" class="btn btn-warning">Add a Product</button>
+  </div>
+    <div class="product-list-wrapper">
+      <div class="product_grid">
+        <ul class="product_list list">
+          <li class="product_item" *ngFor="let item of brandFilteredProductList">
+            <!-- <div class="product_sale">
+              <p>On Sale</p>
+            </div> -->
+            <div class="product_image">
+              <img style="height:235px;" src="{{item.imgLink}}" alt="">
+            </div>
+            <div class="product_values">
+              <div class="product_title">
+                <div><b>{{item.title}}</b></div>
+                <input type="checkbox" value="{{item}}" (click)="toggleSelection(item)">Add Product to List
+              </div>
+              <div>
+                <input type="button" class="btn btn-primary btn-block mx-auto" value="Edit Product" (click)="editProduct(item)">  
+              </div>
+              <div class="product_price">
+                <!-- <span class="price_old">{{item.oldPrice}}</span>  -->
+                <span class="price_new"><b>{{item.newPrice}}</b></span>
+                 <!-- <span class="product_rating"></span> -->
+              </div>
+              <div class="product_desc">
+                <p class="truncate">{{item.description}}</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  
+  
+  

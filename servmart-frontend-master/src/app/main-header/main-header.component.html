@@ -1,0 +1,81 @@
+<div class="topBar  top-bar-homepage  top-freeze-reference-point">
+    <div class="header_wrapper">
+      <div class="logoWidth lfloat col-xs-3 reset-padding">
+        <div class="logo-wrap" (click)="goToHomePage()">
+          <span class="sermart-text">ServMart</span>
+          <img src="../../assets/images/servmart-logo-2.png" class="supplier-logo">
+          <div class="supplier-center-text">Supplier Center</div>
+        </div>
+      <!-- <a class="notIeLogoHeader" href="javascript:void(0)">
+          <img class="title-logo" title="servmart" src="../../assets/images/white-logo.png">
+          <span class="title">ServMart</span>
+      </a> -->
+        <a class="ieLogoHeader" href="javascript:void(0)">
+        <img title="Snapdeal" class="ieLogoHeader aspectRatioEqual sdHomepage cur-pointer" height="28" width="132">
+        </a>
+        <div class="menuIconBar  hidden"><i class="sd-icon sd-icon-menu" style="color: rgb(255, 255, 255);"></i></div>
+      </div>
+      <div class="col-xs-12 search-box-wrapper">
+        <div class="overlap"></div>
+        <input autocomplete="off" name="keyword" type="text" class="col-xs-20 searchformInput keyword" id="inputValEnter" [(ngModel)]="searchString"  placeholder="Search products &amp; brands" value="">
+        <div class="inputValEntered hidden">
+        </div>
+        <button class="searchformButton col-xs-4 rippleGrey" (click)="searchProduct()">
+            
+          <span class="searchTextSpan">
+              <img src="../../assets/images/search.png" >
+          Search</span>
+          <!--<i class="sd-icon sd-icon-search"></i> -->
+        </button>
+      </div>
+      <div class="col-xs-7 reset-padding header-right rfloat">
+        <div class="cartContainer col-xs-11 reset-padding cart-btn">
+          <div class="cartInner">
+            <span class="cartTextSpan">Cart</span>
+            <img src="../../assets/images/cart.png" >
+            <!-- <i class="sd-icon sd-icon-cart-icon-white-2"><span class="cartQuantity hidden">0</span></i> -->
+          </div>
+        </div>
+        <div class="cartProductInfoModal hidden">
+          <span class="cartModalArrow"></span>
+          <div class="overFlowMoreItems">
+            <div class="cartProduct lfloat">
+              <img class="lazy-load cartProductImg" data-src="">
+            </div>
+            <div class="cartProductInfo rfloat">
+              <p class="cartItemHeading">Item(s) Added To cart</p>
+              <p class="cartProductInfoName"></p>
+              <p>Qty.<span class="cartInfoQty">0</span></p>
+            </div>
+          </div>
+          <div id="cartViewBtn" class="btn viewAllBtn cartViewAllBtn">VIEW ALL</div>
+        </div>
+        <div class="myAccountTab accountHeaderClass col-xs-13 reset-padding userDetailHeader">
+          <div class="accountInner ">
+            <span class="accountUserName reset-padding">Hi, {{supplierName}}</span>
+            <span class="accountUserImg">
+              <img src="../../assets/images/userlogo.png" >
+            <!-- <img class="hidden imgUser">
+            <i class="sd-icon sd-icon-user"></i> -->
+            </span>
+            <i class="sd-icon sd-icon-menu2"></i>
+            <div class="dropdownWrapper">
+              <div class="dropdownAccountNonLoggedIn">
+                <div class="accountList">
+                  <ul class="dropdown-list">
+                    <li (click)="goToChangePassword()">Change Password</li>
+                  </ul>
+                  <ul class="dropdown-list">
+                    <li (click)="goToOnboardingPage()">Go To Onboarding Page</li>
+                  </ul>
+                </div>
+                <div class="accountInfoNonLoggedIn">
+                  <span class="accountBtn btn rippleWhite"><a href="javascript:void(0)/login" (click)="logOutUser()">Logout</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

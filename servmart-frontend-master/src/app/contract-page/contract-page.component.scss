@@ -1,0 +1,90 @@
+.contract-container-wrapper {
+  // background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  // background-size: 400% 400%;
+  // animation: gradient 15s ease infinite;
+  color: white !important;
+  height: 100%;
+  // @keyframes gradient {
+  //   0% {
+  //     background-position: 0% 50%;
+  //   }
+  //   50% {
+  //     background-position: 100% 50%;
+  //   }
+  //   100% {
+  //     background-position: 0% 50%;
+  //   }
+  // }
+  background-color: #003873;
+}
+.contract-container-wrapper form {
+  // max-width: 700px;
+  margin: 0 auto;
+}
+
+.contract-header {
+  padding: 12px 0;
+  margin: 0;
+}
+.contract-container-wrapper .container {
+  width: 66vw;
+  padding-right: 7px;
+  padding-left: 7px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.text-center {
+  text-align: center !important;
+}
+.contract-container-wrapper .form-group {
+  margin-bottom: 1rem;
+}
+.contract-container-wrapper .form-check {
+  position: relative;
+  display: block;
+  padding-left: 1.25rem;
+}
+.contract-container-wrapper .form-check-input {
+  position: absolute;
+  margin-top: 0.3rem;
+  margin-left: -1.25rem;
+}
+.contract-container-wrapper .form-check-label {
+  margin-bottom: 0;
+}
+.contract-container-wrapper .w-100 {
+  width: 100% !important;
+  // height: 461px;
+}
+
+.contract-container-wrapper textarea {
+  overflow: auto;
+  resize: vertical;
+  text-align: center;
+  padding: 15px;
+}
+.button {
+  width: 300px;
+  margin: 15px;
+}
+.flex-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.text-border-box {
+  border-radius: 10px;
+  border: 2px solid #dadada;
+}
+
+.contract-page-container {
+  position: relative;
+  top: 80px;
+  background: white;
+  color: black;
+  width: 66vw;
+  .form-group {
+    max-height: 450px;
+    overflow: auto;
+  }
+}

@@ -1,0 +1,56 @@
+.home-header {
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url(//i5.walmartimages.com/dfw/63fd9f59-5a2f/75120adf-c9bb-4d68-aa8d-ce743abeac72/v1/Hero-home.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 515px;
+  width: 100%;
+  display: table;
+  // background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+  //   url(https://i5.walmartimages.com/dfw/63fd9f59-5a2f/75120adf-c9bb-4d68-aa8d-ce743abeac72/v1/Hero-home.png);
+  // background-repeat: no-repeat;
+  // background-size: 100%;
+}
+.header-nav {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 0;
+  border: 1px solid transparent;
+  color: #fff;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mat-tab-label {
+  color: white;
+  opacity: 1 !important;
+}
+.border-white {
+  border: 1px solid white !important;
+  border-color: white !important;
+}
+.header-text-container {
+  padding: 50px;
+  color: white;
+  text-align: center;
+}
+.header-text {
+  color: #fff;
+  font-size: 52px;
+  font-weight: 200;
+  margin: 40px 0;
+}
+.apply-button {
+  padding: 5px 15px !important;
+  font-size: 20px !important;
+  width: 250px !important;
+  margin-top: 11px !important;
+}
+.home-header .supplier-logo {
+  left: 0 !important;
+  top: 0 !important;
+}
+.home-header .logo-wrap {
+  position: relative !important;
+}

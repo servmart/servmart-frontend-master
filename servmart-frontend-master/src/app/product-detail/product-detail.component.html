@@ -1,0 +1,26 @@
+<app-main-header></app-main-header>
+<div class="product-list-wrapper">
+    <div class="product_grid">
+      <ul class="product_list list">
+        <li class="product_item" *ngFor="let item of productList">
+            <ng-container *ngIf="item">
+                <div class="product_image">
+                    <img style="height:235px;" src="{{item['imgLink']}}" alt="">
+                </div>
+                <div class="product_values">
+                    <div class="product_title">
+                      <div ><b>{{item['title']}}</b></div>
+                      <input type="checkbox" value="{{item}}" >
+                    </div>
+                    <div class="product_price">
+                      <span  class="price_new"><b>{{item['newPrice']}}</b></span>
+                    </div>
+                    <div class="product_desc">
+                      <p class="truncate">{{item['description']}}</p>
+                    </div>
+                </div>
+            </ng-container>
+        </li>
+      </ul>
+    </div>
+  </div>

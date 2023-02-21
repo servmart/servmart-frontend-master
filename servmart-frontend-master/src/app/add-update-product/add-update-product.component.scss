@@ -1,0 +1,49 @@
+.image-container{
+    width: 500px;
+    height: 445px;
+    border: 1px solid #4082c4;
+    border-radius: 6px;
+    padding: 12px;
+    background: white;
+}
+.image-div{
+    max-height: 445px;
+    max-width: 475px;
+}
+.logo-wrap{
+    height: 65px;
+    width: 100%;
+    background: #003c78;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+.supplier-center-text {
+    position: absolute;
+    top: 42px;
+    left: 56px;
+}
+.upload-img-btn{
+    width: 125px !important;
+    margin-top: 10px;
+    float: right;
+    margin-bottom: 35px;
+}
+.btn-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+.blue-snackbar {
+    background: #4082c4;
+}
+
+.red-snackbar {
+    background: #F44336;
+}
+.hide{
+    display: none;
+}

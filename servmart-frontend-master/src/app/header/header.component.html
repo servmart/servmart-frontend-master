@@ -1,0 +1,24 @@
+<div class="home-header">
+    <div class ="header-nav">
+        <div class="logo-wrap">
+            <span class="sermart-text">ServMart</span>
+            <img src="../../assets/images/logo.png" class="supplier-logo">
+            <div class="supplier-center-text">Supplier Center</div>
+        </div>
+        <div class="display-flex">
+            <div>
+                <mat-tab-group mat-align-tabs="end">
+                    <mat-tab label="Home"></mat-tab>
+                    <mat-tab label="Content"></mat-tab>
+                    <mat-tab label="FAQ"></mat-tab>
+                </mat-tab-group>
+            </div>
+            <button mat-stroked-button class="border-white" (click)="goToLogin()">Login</button>
+        </div>
+    </div>
+    <div class="header-text-container"> 
+        <div class="header-text">We'll bring the <b>customers</b></div>
+        <div class="header-text"> You bring the <b>products</b></div> 
+        <button mat-raised-button color="primary" class="apply-button" (click)="applyNow()">Apply Now</button> 
+    </div>
+</div>
